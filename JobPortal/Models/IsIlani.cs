@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
+// If you have enabled NRTs for your project, then un-comment the following line:
+// #nullable disable
+
 namespace JobPortal.Models
 {
     public partial class IsIlani
@@ -19,38 +23,42 @@ namespace JobPortal.Models
         public int KullaniciId { get; set; }
         [Column("SirketID")]
         public int SirketId { get; set; }
-        [Column("IsID")]
-        public int IsId { get; set; }
-        public int GerekliKisi { get; set; }
-        [Required]
-        [StringLength(500)]
-        public string Yeterlilik { get; set; }
-        [Required]
-        [StringLength(500)]
-        public string MinimumDeneyim { get; set; }
-        public int YasLimit { get; set; }
-        [Required]
-        [StringLength(50)]
-        public string MedeniDurum { get; set; }
-        [Column(TypeName = "date")]
-        public DateTime BaslangicTarihi { get; set; }
-        [Column(TypeName = "date")]
-        public DateTime BitisTarihi { get; set; }
-        [Column(TypeName = "date")]
-        public DateTime ShortlistTarih { get; set; }
-        [Column(TypeName = "date")]
-        public DateTime MulakatTarih { get; set; }
-        [Column("IsDurumuID")]
-        public int IsDurumuId { get; set; }
-        [Required]
-        [StringLength(2000)]
-        public string Aciklama { get; set; }
         [Column("IsKategoriID")]
         public int IsKategoriId { get; set; }
+        [Required]
+        [StringLength(500)]
+        public string IsBaslik { get; set; }
+        [Required]
+        [StringLength(2000)]
+        public string IsAciklama { get; set; }
+        public int MinimumMaas { get; set; }
+        public int OrtalamaMaas { get; set; }
+        [Required]
+        [StringLength(500)]
+        public string Konum { get; set; }
+        public int GerekliKisi { get; set; }
+        [Column("IsZamaniID")]
+        public int IsZamaniId { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime IsTarihZaman { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime UygulamaSonTarih { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime SonTarih { get; set; }
+        [Column("IsGerekliliklerID")]
+        public int IsGerekliliklerId { get; set; }
+        [Column("IsDurumuID")]
+        public int IsDurumuId { get; set; }
 
         [ForeignKey(nameof(IsDurumuId))]
         [InverseProperty("IsIlani")]
         public virtual IsDurumu IsDurumu { get; set; }
+        [ForeignKey(nameof(IsDurumuId))]
+        [InverseProperty(nameof(IsZamani.IsIlani))]
+        public virtual IsZamani IsDurumuNavigation { get; set; }
+        [ForeignKey(nameof(IsGerekliliklerId))]
+        [InverseProperty("IsIlani")]
+        public virtual IsGereklilikler IsGereklilikler { get; set; }
         [ForeignKey(nameof(IsKategoriId))]
         [InverseProperty("IsIlani")]
         public virtual IsKategori IsKategori { get; set; }

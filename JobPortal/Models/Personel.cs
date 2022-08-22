@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
+// If you have enabled NRTs for your project, then un-comment the following line:
+// #nullable disable
+
 namespace JobPortal.Models
 {
     public partial class Personel
@@ -51,8 +55,6 @@ namespace JobPortal.Models
         [Required]
         [StringLength(3000)]
         public string Aciklama { get; set; }
-        [Column("SimdikiIsDurumuID")]
-        public int SimdikiIsDurumuId { get; set; }
 
         [ForeignKey(nameof(IsKategoriId))]
         [InverseProperty("Personel")]
@@ -63,9 +65,6 @@ namespace JobPortal.Models
         [ForeignKey(nameof(KullaniciId))]
         [InverseProperty(nameof(Ulke.Personel))]
         public virtual Ulke KullaniciNavigation { get; set; }
-        [ForeignKey(nameof(SimdikiIsDurumuId))]
-        [InverseProperty("Personel")]
-        public virtual SimdikiIsDurumu SimdikiIsDurumu { get; set; }
         [InverseProperty("Personel")]
         public virtual ICollection<Beceri> Beceri { get; set; }
         [InverseProperty("Personel")]

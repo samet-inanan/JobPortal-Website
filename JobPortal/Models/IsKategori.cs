@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
+// If you have enabled NRTs for your project, then un-comment the following line:
+// #nullable disable
+
 namespace JobPortal.Models
 {
     public partial class IsKategori
     {
         public IsKategori()
         {
-            Is = new HashSet<Is>();
             IsIlani = new HashSet<IsIlani>();
             Personel = new HashSet<Personel>();
         }
@@ -24,8 +27,6 @@ namespace JobPortal.Models
         [StringLength(500)]
         public string Aciklama { get; set; }
 
-        [InverseProperty("IsKategori")]
-        public virtual ICollection<Is> Is { get; set; }
         [InverseProperty("IsKategori")]
         public virtual ICollection<IsIlani> IsIlani { get; set; }
         [InverseProperty("IsKategori")]

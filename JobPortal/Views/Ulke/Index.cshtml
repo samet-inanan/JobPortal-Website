@@ -7,9 +7,9 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="genric-btn bg-dark">Create New</a>
 </p>
-<table class="table">
+<table class="table table-hover">
     <thead>
         <tr>
             <th>
@@ -25,9 +25,9 @@
                 @Html.DisplayFor(modelItem => item.Ulke1)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.UlkeId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.UlkeId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.UlkeId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.UlkeId" class="genric-btn primary">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.UlkeId" class="genric-btn info">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.UlkeId" class="genric-btn danger">Delete</a>
             </td>
         </tr>
 }
