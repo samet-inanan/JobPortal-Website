@@ -1,0 +1,113 @@
+﻿@model IEnumerable<JobPortal.Models.Personel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonelAd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DogumTarihi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UlkeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailAdres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cinsiyet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fotograf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Yeterlilik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsReferanslar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aciklama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsKategori)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kullanici)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KullaniciNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SimdikiIsDurumu)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonelAd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DogumTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UlkeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAdres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cinsiyet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fotograf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yeterlilik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsReferanslar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aciklama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsKategori.IsKategori1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kullanici.EmailAdres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KullaniciNavigation.Ulke1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SimdikiIsDurumu.SimdikiIsDurumu1)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PersonelId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PersonelId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PersonelId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
